@@ -61,8 +61,23 @@ const _ = {
         }
         return string;
       }
+    },
+    //     has(object, key)
+    //  The method takes two argument, an object and a key
+    //  It checks to see if the provided object contains a value 
+    //    at the specified key
+    //  It will return true if the object contains a value at the key, and 
+    //    false if not.
+    //  Only check for unnested values
+    has(obj, key) {
+        check = obj[key] != undefined;
+        return check;
     }
-};
+}
+
+
+
+
 
 
 // Do not write or modify code below this line.

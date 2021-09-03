@@ -72,12 +72,23 @@ const _ = {
     has(obj, key) {
         check = obj[key] != undefined;
         return check;
+    },
+    //    drop(array, number) 
+    //  The method takes 2 arguments, an array and a number 
+    //  The number argument represent the numbers to drop from the begining 
+    //      of the array
+    //  As a result, drop() return an array which contains the numbers from
+    //      the original array, excluding the specified number of elements
+    //      from the begining of the array
+    //  If the number argument is not specified, it should to drop one element 
+    drop(arr, num) {
+        if(num === undefined) {
+            return arr.slice(1);
+        } else {
+            return arr.slice(num);
+        }
     }
 }
-
-
-
-
 
 
 // Do not write or modify code below this line.

@@ -90,6 +90,20 @@ const _ = {
       const swappedObject = Object.fromEntries(swappedEntries(entries));
       return swappedObject;
   },
+  //    findKey(object, predicateFunction())
+  //  Iterates through each key-value pair and call the predicate function
+  //    with the value
+  //  Returns the first key that has a value that returns truthy values from
+  //    predicate function 
+  findKey(obj, predicate){
+    for(let key in obj) {
+      if(predicate(obj[key])) {
+        return key;
+      } else {
+        return undefined;
+      }
+    }
+  },
   //    drop(array, number)
   //  The method takes 2 arguments, an array and a number
   //  The number argument represent the numbers to drop from the begining

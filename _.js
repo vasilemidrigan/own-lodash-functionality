@@ -127,10 +127,23 @@ const _ = {
   //  the method creates a new copy of the supplied array, dropping elements
   //    from the beginning of the array, until an element causes the predicate
   //    function to return falsy
-  dropWhile(array, predicate) {
-    // to do
+  dropWhile(arr, predicate) {
+    for(let i = 0; i <= arr.length - 1; i++) {
+      if(!predicate(arr[i])) {
+        arr.splice(0, 1);
+      }
+    }
+    return arr;
   },
 };
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+// const
+
+// console.log(_.dropWhile(arr, ))
+
+ 
 
 
 // Do not write or modify code below this line.

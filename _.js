@@ -70,8 +70,11 @@ const _ = {
   //    false if not.
   //  Only check for unnested values
   has(obj, key) {
-    check = obj[key] != undefined;
-    return check;
+    if(obj[key]) {
+      return true;
+    } else {
+      return false;
+    }
   },
   //    invert(object)
   //  The method takes an object as an argument
@@ -127,24 +130,32 @@ const _ = {
   //  the method creates a new copy of the supplied array, dropping elements
   //    from the beginning of the array, until an element causes the predicate
   //    function to return falsy
-  dropWhile(arr, predicate) {
-    for(let i = 0; i <= arr.length - 1; i++) {
-      if(!predicate(arr[i])) {
-        arr.splice(0, 1);
-      }
-    }
-    return arr;
+  dropWhile(array, predicate) {
+    const dropNumber = array.findIndex(function(element, index) {
+      return !predicate(element, index, array);
+    });
+    const droppedArray = this.drop(array, dropNumber);
+    return droppedArray;
   },
+  //  chunk()
+  // the method takes two arguments, an array and a size
+  // breaks up the supplied array into arrays of the specified size
+  // return an array which contain all of the previously created array chunks in the order of the
+  //  original array
+  // if the array can't by broke evenly the last chunk will be smaller than specified size
+  // if no size is specified to the method, the defalut value of the size is one
+  chunk(array, size) {
+    if(size === undefined) {
+      return size = 1;
+    } 
+    const arrChunks = [];
+    for(let i = 0; i <= array.length - 1; i += size){
+      const arrayChunk = array.slice(i, i + size);
+      arrChunks.push(arrayChunk);
+    } 
+    return arrChunks;
+  }
 };
-
-// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-
-// const
-
-// console.log(_.dropWhile(arr, ))
-
- 
-
 
 // Do not write or modify code below this line.
 module.exports = _;
